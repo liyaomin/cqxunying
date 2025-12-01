@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆寻影网络科技有限公司 - 专业云计算服务提供商</title>
+    <meta name="description" content="重庆寻影网络科技有限公司致力于为企业提供高效、稳定、安全的云计算解决方案，包括弹性计算、云存储、大数据分析及网络安全服务。">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00f2ff;
+            --secondary-color: #7000ff;
+            --bg-dark: #0a0b1e;
+            --bg-light: #14162d;
+            --text-light: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --accent: #ff0055;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Nav */
+        header {
+            background: rgba(10, 11, 30, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-contact {
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent));
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(10, 11, 30, 0.7), rgba(10, 11, 30, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-btns {
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.9rem 2.4rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 242, 255, 0.1);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-dim);
+        }
+
+        /* Services/Products */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .stat-item span {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Solutions */
+        .solutions {
+            background: var(--bg-light);
+        }
+
+        .solution-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            border-color: var(--primary-color);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .sol-item {
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .sol-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background: linear-gradient(135deg, #1a1c35 0%, #0f1025 100%);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .info-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-group i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #050614;
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none;
+            }
+            .about-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <!-- SVG Logo -->
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 60C16.7157 60 10 53.2843 10 45C10 36.7157 16.7157 30 25 30C26.5 30 28 30.2 29.4 30.6C31.5 22.2 39.1 16 48 16C58.5 16 67.2 23.8 68.8 34C69.2 34 69.6 34 70 34C81.0457 34 90 42.9543 90 54C90 65.0457 81.0457 74 70 74H28" stroke="url(#paint0_linear)" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="35" cy="50" r="4" fill="#00f2ff"/>
+                <circle cx="50" cy="45" r="4" fill="#7000ff"/>
+                <circle cx="65" cy="55" r="4" fill="#ff0055"/>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="10" y1="45" x2="90" y2="45" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#00f2ff"/>
+                        <stop offset="1" stop-color="#7000ff"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            重庆寻影
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#products">产品服务</a></li>
+                <li><a href="#solutions">解决方案</a></li>
+                <li><a href="#about">关于我们</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-contact">联系我们</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>构建数字未来的云端基石</h1>
+            <p>重庆寻影网络科技有限公司，专注为企业提供高性能、高可靠的云计算基础设施与行业数字化转型方案。让计算无处不在，让智能触手可及。</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn-primary">探索产品</a>
+                <a href="#contact" class="btn-outline">咨询专家</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="section-title">
+            <h2>核心产品与服务</h2>
+            <p>基于前沿技术架构，打造全栈式云服务平台</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-server service-icon"></i>
+                <h3>弹性计算 ECS</h3>
+                <p>秒级启动，弹性伸缩。提供多种实例类型，满足从个人网站到高性能科学计算的各类需求，稳定可靠。</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cloud service-icon"></i>
+                <h3>对象存储 OSS</h3>
+                <p>海量、安全、低成本、高可靠的云存储服务。支持数据生命周期管理，为您的数据资产保驾护航。</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shield-alt service-icon"></i>
+                <h3>云安全中心</h3>
+                <p>态势感知、DDoS防护、主机安全一体化。构建多层防御体系，实时抵御网络攻击，保障业务连续性。</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-network-wired service-icon"></i>
+                <h3>专有网络 VPC</h3>
+                <p>构建隔离的云上网络环境。自定义IP地址范围、网段、路由表和网关，实现混合云架构的无缝连接。</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database service-icon"></i>
+                <h3>云数据库 RDS</h3>
+                <p>兼容 MySQL、PostgreSQL 等主流数据库引擎。提供自动备份、容灾、监控等全套运维解决方案。</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-brain service-icon"></i>
+                <h3>AI 算力平台</h3>
+                <p>提供高性能 GPU 集群，支持深度学习训练与推理。加速人工智能应用落地，赋能行业创新。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: #0e0f24;">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="数据中心">
+            </div>
+            <div class="about-text">
+                <h3>关于重庆寻影</h3>
+                <p>重庆寻影网络科技有限公司（简称“重庆寻影”）是一家立足重庆、辐射全国的云计算高新技术企业。我们致力于通过先进的云计算技术，帮助企业降低IT成本，提升运营效率。</p>
+                <br>
+                <p>作为数字化转型的推动者，我们拥有一支经验丰富的技术团队，在云计算架构、大数据处理及网络安全领域拥有深厚的技术积累。我们始终坚持“客户至上，技术驱动”的理念，为客户提供从咨询、部署到运维的一站式云服务。</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h4>99.9%</h4>
+                        <span>服务可用性</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>500+</h4>
+                        <span>企业客户</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>24/7</h4>
+                        <span>技术支持</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="section-title">
+            <h2>行业解决方案</h2>
+            <p>深入业务场景，定制化解决行业痛点</p>
+        </div>
+        <div class="solution-tabs">
+            <button class="tab-btn active">互联网应用</button>
+            <button class="tab-btn">金融科技</button>
+            <button class="tab-btn">智能制造</button>
+            <button class="tab-btn">政务云</button>
+        </div>
+        <div class="solution-content">
+            <div class="sol-item">
+                <h4><i class="fas fa-bolt"></i> 高并发处理</h4>
+                <p>针对电商大促、游戏开服等高并发场景，提供弹性扩容方案，确保系统平稳运行。</p>
+            </div>
+            <div class="sol-item">
+                <h4><i class="fas fa-lock"></i> 数据合规存储</h4>
+                <p>满足金融级数据安全合规要求，提供加密存储、异地灾备等高等级保护措施。</p>
+            </div>
+            <div class="sol-item">
+                <h4><i class="fas fa-chart-line"></i> 工业大数据分析</h4>
+                <p>采集设备数据，利用大数据平台进行实时分析，实现预测性维护和生产优化。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>联系我们</h2>
+            <p>期待与您携手共创数字未来</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <p style="margin-bottom: 2rem; color: var(--text-dim);">无论您有任何技术疑问或业务需求，我们的专业团队随时为您提供支持。</p>
+                
+                <div class="info-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>公司地址</h4>
+                        <p>重庆市南岸区江南大道8号2幢11层办公11号</p>
+                    </div>
+                </div>
+                
+                <div class="info-group">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>电子邮箱</h4>
+                        <p>info@cqxunying.asia </p>
+                    </div>
+                </div>
+                
+                <div class="info-group">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>联系电话</h4>
+                        <p>13554221818</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="您的姓名" required>
+                <input type="email" placeholder="电子邮箱" required>
+                <input type="tel" placeholder="联系电话">
+                <textarea rows="5" placeholder="请描述您的需求..." required></textarea>
+                <button type="submit">发送消息</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-block;">重庆寻影</a>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">专注云计算技术研发与服务，助力企业数字化转型。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品服务</h4>
+                <ul>
+                    <li><a href="#">弹性计算</a></li>
+                    <li><a href="#">云存储</a></li>
+                    <li><a href="#">网络安全</a></li>
+                    <li><a href="#">大数据分析</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持与服务</h4>
+                <ul>
+                    <li><a href="#">文档中心</a></li>
+                    <li><a href="#">工单系统</a></li>
+                    <li><a href="#">备案服务</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-weixin"></i></a>
+                    <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-weibo"></i></a>
+                    <a href="#" style="color: #fff; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 重庆寻影网络科技有限公司 版权所有 | ICP备案号：渝ICP备XXXXXXXX号</p>
+        </div>
+    </footer>
+
+</body>
+</html>
